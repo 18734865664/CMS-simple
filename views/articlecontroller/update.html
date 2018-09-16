@@ -1,0 +1,20 @@
+            <form name = logon method="post" action="/editart_{{.art.Id}}" enctype="multipart/form-data">
+            <h3 class="review_title">编辑文章</h3>
+            <div class="form_group">
+                <label>文章标题：</label>
+                <input type="text" class="input_txt2" name = "articleName" value={{.art.ArtName}}>
+            </div>
+            <div class="form_group">
+                <label>文章内容：</label>
+                <textarea class="input_multxt" name="content">{{.art.Content}}</textarea></textarea>
+            </div>
+            <div class="form_group">
+                <label>上传图片：</label>
+                <img src="{{.art.Img}}">
+                <input type="file" name="uploadname" class="input_file">
+            </div>
+            <div class="form_group indent_group line_top">
+                <input type="submit" value="添 加" class="confirm">
+                <span>{{.errmsg}}</span>
+            </div>
+        </form>

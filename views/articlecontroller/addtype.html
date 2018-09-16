@@ -1,0 +1,29 @@
+        <div class="pannel">
+            <table class="common_table">
+                <tr>
+                    <th width="10%">id</th>
+                    <th width="70%">类别名称</th>
+                    <th width="20%">管理操作</th>
+                </tr>
+
+                {{range $idx, $tp := $.tys}}
+                    {{if eq $idx 0}}
+                    <tr hidden="hidden">
+                    {{else}}
+                    <tr>
+                    {{end}}
+                        <td>{{$idx}}</td>
+                        <td>{{$tp.TypeName}}</td>
+                        <td><a href="/deltype_{{$tp.Id}}" class="edit">删除</a></td>
+                    </tr>
+                {{end}}
+                <tr>
+                    <td colspan="3">
+                    <form action="/addtype" method="post">
+                        <input type="text" class="type_txt" placeholder="添加分类" name="typeName">
+                        <input type="submit" class="addtype" value="增加分类">
+                    </form>
+                    </td>
+                </tr>
+            </table>
+        </div>

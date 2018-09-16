@@ -1,0 +1,35 @@
+        <div class="pannel">
+            <form enctype="multipart/form-data" method = "post" action="/addart">
+            <h3 class="review_title">添加文章</h3>
+            <div class="form_group">
+                <label>文章标题：</label>
+                <input type="text" class="input_txt2" name="articleName" value = "{{.artname}}">
+            </div>
+            <div class="form_group">
+                <label>文章类型：</label>
+                <select class="sel_opt" name="select">
+                {{range $idx, $tp := .tps}}
+                {{if eq $idx 0}}
+
+                {{else if eq $idx $.typeId}}}
+                    <option selected="true" value = "{{$tp.Id}}">{{$tp.TypeName}}</option>
+                {{else}}
+                    <option value = "{{$tp.Id}}">{{$tp.TypeName}}</option>
+                {{end}}
+                {{end}}
+                </select>
+            </div>
+            <div class="form_group">
+                <label>文章内容：</label>
+                <textarea class="input_multxt" name="content"></textarea>
+            </div>
+            <div class="form_group">
+                <label>上传图片：</label>
+                <input type="file" class="input_file"  name="uploadname" value = "{{.imgpath}}">
+            </div>
+            <div class="form_group indent_group line_top">
+                <input type="submit" value="添 加" class="confirm">
+                <span>{{.errmsg}}</span>
+            </div>
+        </form>
+        </div>

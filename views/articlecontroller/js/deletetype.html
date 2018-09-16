@@ -1,0 +1,18 @@
+<script>
+$(function () {
+    $(".edit").click(function () {
+        if (!comfirm("are you really delete??")){
+            return false
+        }
+    })
+    $(".input_multxt").text({{.content}})
+    $("#select").change(
+        function () {
+            $(location).prop("href", "/artlist_0?tpId="+$(this).val())
+        }
+    )
+    $(".input_reg").click(function () {
+        $(location).prop("href", "/register")
+    })
+})
+</script>
